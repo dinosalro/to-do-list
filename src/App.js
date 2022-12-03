@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Banner from "./Componentes/Banner/Banner";
+import Input from "./Componentes/Input/Input";
+import List from "./Componentes/List/List";
+import GlobalStyled from "./GlobalStyled";
+import {Container, ContainerMain} from './appStyled'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const [task, setTask] = React.useState([])
+
+
+   return (
+    <Container>
+      <GlobalStyled/>
+      <Banner/>
+      <ContainerMain>
+      <Input setTask={setTask} task={task} />
+      <List setTask={setTask} task={task}/>
+      </ContainerMain>
+    </Container>
   );
 }
 
